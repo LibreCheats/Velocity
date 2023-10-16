@@ -23,18 +23,30 @@ export default function NewTab(): JSX.Element {
   });
 
   return (
-    <main class="flex h-full w-full flex-col items-center" id="ntp">
+    <main
+      class="relative flex h-full w-full flex-col items-center justify-between"
+      id="ntp"
+    >
       <Title>New Tab</Title>
-      {/*  */}
-      <div class="m-5 mt-32 flex items-center gap-5">
-        <div class="h-20 w-20" id="logo"></div>
-        <h1 class="text-4xl font-semibold">Velocity</h1>
+      <div class="mt-10 flex w-screen flex-col items-center">
+        <div class="m-5 flex items-center gap-5">
+          <div class="h-20 w-20" id="logo"></div>
+          <h1 class="text-4xl font-semibold">LibreCheats</h1>
+        </div>
+        <input
+          class="m-5 rounded-md px-5 py-4 text-sm shadow-lg focus:shadow-2xl focus:outline-none focus:ring-0 md:w-1/2"
+          placeholder={`Search with ${name()} or enter address`}
+          onKeyDown={handleKeydown}
+        ></input>
       </div>
-      <input
-        class="m-5 rounded-md px-5 py-4 text-sm shadow-lg focus:shadow-2xl focus:outline-none focus:ring-0 md:w-1/2"
-        placeholder={`Search with ${name()} or enter address`}
-        onKeyDown={handleKeydown}
-      ></input>
+      <div class="absolute bottom-0 left-1/2 mb-5 -translate-x-1/2 transform">
+        <h1 class="text-2xl">
+          Powered by{" "}
+          <a href={__uv$config.prefix + __uv$config.encodeUrl('https://github.com/cohenerickson/Velocity/')} class="text-blue-500 hover:underline">
+            Velocity.
+          </a>
+        </h1>
+      </div>
     </main>
   );
 }
